@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.get('/', async function (req, res) {
   let dummyData;
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 2000; i++) {
     dummyData = await fs.readFile('data.json');
   }
   const json = JSON.parse(dummyData);
