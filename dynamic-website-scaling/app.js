@@ -8,7 +8,10 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/', async function (req, res) {
-  const dummyData = await fs.readFile('data.json');
+  let dummyData;
+  for (let i = 0; i < 10000; i++) {
+    dummyData = await fs.readFile('data.json');
+  }
   const json = JSON.parse(dummyData);
   res.json({ message: 'Success!', data: json });
 });
