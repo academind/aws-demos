@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= topic.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <script src="/scripts/main.js" defer></script>
+  </head>
+  <body>
+    <dialog id="opinion-dialog">
+      <h2>Share your opinion</h2>
+      <form action="/share-opinion" method="POST">
+        <div class="form-control">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" required />
+        </div>
+        <div class="form-control">
+          <label for="user">Your name</label>
+          <input type="text" name="user" id="user" required />
+        </div>
+        <div class="form-control">
+          <label for="text">Your opinion</label>
+          <textarea id="text" name="text" rows="5" required></textarea>
+        </div>
+        <input type="hidden" name="topic-id" value="<%= topic.id %>" />
+        <div>
+          <button type="button" class="btn-alt">Cancel</button>
+          <button class="btn">Share!</button>
+        </div>
+      </form>
+    </dialog>
+    <header id="main-header">
+      <nav>
+        <a href="/topics">All Topics</a>
+      </nav>
+    </header>
+    <main>
+      <section id="statement">
+        <h1><%= topic.title %></h1>
+        <address>Shared by <%= topic.user %>.</address>
+        <p><%= topic.statement %></p>
+        <button class="btn" id="open-dialog-btn">Share your opinion</button>
+      </section>
+      <section id="opinions">
+        <h2>Shared opinions</h2>
+        <ul>
+          <% for (const opinion of topic.opinions) { %>
+          <li>
+            <article>
+              <h2><%= opinion.title %></h2>
+              <address>By <%= opinion.user %>.</address>
+              <p><%= opinion.text %></p>
+            </article>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
