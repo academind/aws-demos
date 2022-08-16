@@ -5,6 +5,7 @@ const {
   PutCommand,
   GetCommand,
   ScanCommand,
+  QueryCommand,
 } = require('@aws-sdk/lib-dynamodb');
 
 const client = new dynamodb.DynamoDBClient({
@@ -67,9 +68,10 @@ async function getTopic(id) {
   const response = await ddbDocClient.send(cmd);
   const topicData = response.Item;
 
-  const cmd2 = new GetCommand({
-    Key: {
-      Id: id,
+  const cmd2 = new QueryCommand({
+    KeyConditionExpression: 'TopicId = :v1',
+    ExpressionAttributeValues: {
+      ':v1': id,
     },
     TableName: 'Opinions',
   });
