@@ -69,9 +69,11 @@ async function getTopic(id) {
   const topicData = response.Item;
 
   const cmd2 = new QueryCommand({
-    KeyConditionExpression: 'TopicId = :v1',
-    ExpressionAttributeValues: {
-      ':v1': id,
+    KeyConditions: {
+      TopicId: {
+        AttributeValueList: [id],
+        ComparisonOperator: 'EQ'
+      },
     },
     TableName: 'Opinions',
   });
