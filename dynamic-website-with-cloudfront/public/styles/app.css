@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 3rem;
+  background-color: #221f1f;
+  color: #e8d2d2;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
