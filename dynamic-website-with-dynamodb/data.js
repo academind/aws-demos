@@ -51,7 +51,7 @@ async function getTopics() {
   return items.map((item) => ({
     title: item.Title,
     user: item.User,
-    id: item.ID,
+    id: item.Id,
     statement: item.Statement,
   }));
 }
