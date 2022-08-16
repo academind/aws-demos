@@ -48,7 +48,12 @@ async function getTopics() {
   const items = response.Items;
   console.log(items);
 
-  return items;
+  return items.map((item) => ({
+    title: item.Title,
+    user: item.User,
+    id: item.ID,
+    statement: item.Statement,
+  }));
 }
 
 async function getTopic(id) {
