@@ -79,7 +79,7 @@ async function getTopic(id) {
   });
 
   const response2 = await ddbDocClient.send(cmd2);
-  const opinions = response2.Item;
+  const opinions = response2.Items;
 
   const topic = {
     id: topicData.Id,
