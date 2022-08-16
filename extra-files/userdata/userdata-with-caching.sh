@@ -20,7 +20,7 @@ echo "Cloning website"
 mkdir -p /demo-website
 cd /demo-website
 git clone https://github.com/academind/aws-demos.git .
-cd dynamic-website-with-dynamodb
+cd dynamic-website-with-cloudfront
 
 # Install dependencies
 echo "Installing dependencies"
