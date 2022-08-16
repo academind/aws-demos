@@ -49,6 +49,4 @@ app.post('/share-opinion', async function (req, res) {
   res.redirect(`/topics/${topicId}`);
 });
 
-initDatabase().then(function () {
-  app.listen(3000);
-});
+app.listen(3000);
