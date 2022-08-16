@@ -6,7 +6,6 @@ const {
   getTopic,
   addNewTopic,
   addNewOpinion,
-  initDatabase,
 } = require('./data');
 
 const app = express();
